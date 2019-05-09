@@ -33,6 +33,7 @@ namespace WpfVidimoe
         {
             Service1Client client = new Service1Client();
 
+
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             Hide();
