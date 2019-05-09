@@ -1,0 +1,33 @@
+﻿<Window x:Class="WpfVidimoe.ContactInf"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfVidimoe"
+        mc:Ignorable="d"
+        Title="ContactInf" Height="450" Width="800" MinWidth="700" MinHeight="450">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock/>
+            <TextBlock FontSize="17" TextWrapping="Wrap">The shelter was founded in 1995 at the expense of the sale of white-eyed peoples of Sarah, and now it is washed away money and dogs.</TextBlock>
+            <TextBlock/>
+            <TextBlock FontSize="17">Address : city Rivne, street Dog Hunter 66 / 66</TextBlock>
+            <TextBlock FontSize="17">Mobil telephone : +380936514842</TextBlock>
+            <TextBlock FontSize="17">Instagram : <Span Foreground="MediumAquamarine">#Tvari</Span></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <TextBlock FontSize="17">Our Requisites:</TextBlock>
+            <TextBlock FontSize="17">PP"Tvari"</TextBlock>
+            <TextBlock FontSize="17">INN 7802617658</TextBlock>
+            <TextBlock FontSize="17">KPP 780201001</TextBlock>
+            <TextBlock FontSize="17">Bank"Krasna Nitochka"</TextBlock>
+            <TextBlock FontSize="17">Account 30101810900000000790</TextBlock>
+        </StackPanel>
+        <Button Grid.Row="2" Width="200" Height="50" Content="Close" FontSize="20" Click="BTN_close_contInf"/>
+    </Grid>
+</Window>

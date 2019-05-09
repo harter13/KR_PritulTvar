@@ -1,0 +1,31 @@
+﻿<Window x:Class="WpfVidimoe.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfVidimoe"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800" MinWidth="600" MinHeight="350">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Content="EMAIL" HorizontalAlignment="Center" FontSize="20"/>
+        <TextBox Grid.Row="0" Width="300" Height="30" x:Name="TB_email_log"/>
+        <Label Grid.Row="1" Content="PASSWORD" HorizontalAlignment="Center" FontSize="20"/>
+        <PasswordBox Grid.Row="1" Width="300" Height="30" x:Name="PB_password_log"/>
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Row="2" Grid.Column="0" Height="50" Width="200" Content="SING IN" FontSize="15" Click="BTN_singIn_log"/>
+            <Button Grid.Row="2" Grid.Column="1" Height="50" Width="200" Content="REGISTER" FontSize="15" Click="BTN_registr_log"/>
+        </Grid>
+    </Grid>
+</Window>
