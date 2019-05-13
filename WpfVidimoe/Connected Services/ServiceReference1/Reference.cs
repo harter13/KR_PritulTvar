@@ -15,6 +15,67 @@ namespace WpfVidimoe.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SingInUser", Namespace="http://schemas.datacontract.org/2004/07/KR_PritulTvar")]
+    [System.SerializableAttribute()]
+    public partial class SingInUser : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailSingInField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordSingInField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmailSingIn {
+            get {
+                return this.EmailSingInField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailSingInField, value) != true)) {
+                    this.EmailSingInField = value;
+                    this.RaisePropertyChanged("EmailSingIn");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PasswordSingIn {
+            get {
+                return this.PasswordSingInField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordSingInField, value) != true)) {
+                    this.PasswordSingInField = value;
+                    this.RaisePropertyChanged("PasswordSingIn");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RegUser", Namespace="http://schemas.datacontract.org/2004/07/KR_PritulTvar")]
     [System.SerializableAttribute()]
     public partial class RegUser : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -610,6 +671,12 @@ namespace WpfVidimoe.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SingIn", ReplyAction="http://tempuri.org/IService1/SingInResponse")]
+        bool SingIn(WpfVidimoe.ServiceReference1.SingInUser User);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SingIn", ReplyAction="http://tempuri.org/IService1/SingInResponse")]
+        System.Threading.Tasks.Task<bool> SingInAsync(WpfVidimoe.ServiceReference1.SingInUser User);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SetUser", ReplyAction="http://tempuri.org/IService1/SetUserResponse")]
         void SetUser(WpfVidimoe.ServiceReference1.RegUser user);
         
@@ -617,10 +684,10 @@ namespace WpfVidimoe.ServiceReference1 {
         System.Threading.Tasks.Task SetUserAsync(WpfVidimoe.ServiceReference1.RegUser user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SetTvarina", ReplyAction="http://tempuri.org/IService1/SetTvarinaResponse")]
-        void SetTvarina(WpfVidimoe.ServiceReference1.Tvar_ADD tvar);
+        void SetTvarina(WpfVidimoe.ServiceReference1.Tvar_ADD tvar, WpfVidimoe.ServiceReference1.SingInUser User);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SetTvarina", ReplyAction="http://tempuri.org/IService1/SetTvarinaResponse")]
-        System.Threading.Tasks.Task SetTvarinaAsync(WpfVidimoe.ServiceReference1.Tvar_ADD tvar);
+        System.Threading.Tasks.Task SetTvarinaAsync(WpfVidimoe.ServiceReference1.Tvar_ADD tvar, WpfVidimoe.ServiceReference1.SingInUser User);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -650,6 +717,14 @@ namespace WpfVidimoe.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
+        public bool SingIn(WpfVidimoe.ServiceReference1.SingInUser User) {
+            return base.Channel.SingIn(User);
+        }
+        
+        public System.Threading.Tasks.Task<bool> SingInAsync(WpfVidimoe.ServiceReference1.SingInUser User) {
+            return base.Channel.SingInAsync(User);
+        }
+        
         public void SetUser(WpfVidimoe.ServiceReference1.RegUser user) {
             base.Channel.SetUser(user);
         }
@@ -658,12 +733,12 @@ namespace WpfVidimoe.ServiceReference1 {
             return base.Channel.SetUserAsync(user);
         }
         
-        public void SetTvarina(WpfVidimoe.ServiceReference1.Tvar_ADD tvar) {
-            base.Channel.SetTvarina(tvar);
+        public void SetTvarina(WpfVidimoe.ServiceReference1.Tvar_ADD tvar, WpfVidimoe.ServiceReference1.SingInUser User) {
+            base.Channel.SetTvarina(tvar, User);
         }
         
-        public System.Threading.Tasks.Task SetTvarinaAsync(WpfVidimoe.ServiceReference1.Tvar_ADD tvar) {
-            return base.Channel.SetTvarinaAsync(tvar);
+        public System.Threading.Tasks.Task SetTvarinaAsync(WpfVidimoe.ServiceReference1.Tvar_ADD tvar, WpfVidimoe.ServiceReference1.SingInUser User) {
+            return base.Channel.SetTvarinaAsync(tvar, User);
         }
     }
 }

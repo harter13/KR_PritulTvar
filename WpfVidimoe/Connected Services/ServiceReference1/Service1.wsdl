@@ -7,6 +7,12 @@
       <xsd:import schemaLocation="http://localhost:64992/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/KR_PritulTvar" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IService1_SingIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:SingIn" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SingIn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SingInResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_SetUser_InputMessage">
     <wsdl:part name="parameters" element="tns:SetUser" />
   </wsdl:message>
@@ -20,6 +26,10 @@
     <wsdl:part name="parameters" element="tns:SetTvarinaResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
+    <wsdl:operation name="SingIn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SingIn" message="tns:IService1_SingIn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SingInResponse" message="tns:IService1_SingIn_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="SetUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SetUser" message="tns:IService1_SetUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SetUserResponse" message="tns:IService1_SetUser_OutputMessage" />
@@ -31,6 +41,15 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SingIn">
+      <soap:operation soapAction="http://tempuri.org/IService1/SingIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SetUser">
       <soap:operation soapAction="http://tempuri.org/IService1/SetUser" style="document" />
       <wsdl:input>

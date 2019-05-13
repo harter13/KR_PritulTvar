@@ -10,12 +10,14 @@ namespace KR_PritulTvar
 {
     public class Service1 : IService1
     {
-        public void SingIn(RegUser regUser)
+        public bool SingIn(SingInUser User)
         {
-            using (Priut db =new Priut())
+            using (Priut db = new Priut())
             {
-                db.RegUsers.FirstOrDefault(w => w.Email == regUser.Email);
-                db.RegUsers.FirstOrDefault(w => w.Password == regUser.Password);
+                bool e = db.RegUsers.
+                    ToList()
+                    .Any(w => w.Email == User.EmailSingIn && w.Password == User.PasswordSingIn);
+                return e;  
             }
         }
         public void SetUser(RegUser user)
@@ -25,10 +27,15 @@ namespace KR_PritulTvar
             dB.SaveChanges();
         }
 
-        public void SetTvarina(Tvar_ADD tvar)
+        public void SetTvarina(Tvar_ADD tvar, SingInUser User)
         {
-            Priut dB = new Priut();
-            //dB.Tvar_Add.Add();
+            using (Priut db = new Priut())
+            {
+                var users = db.RegUsers.FirstOrDefault(w => w.Email == User.EmailSingIn);
+                tvar.RegisterUser = users;
+                db.Tvar_Add.Add(tvar);
+                db.SaveChanges();
+            }
         }
     }
 }

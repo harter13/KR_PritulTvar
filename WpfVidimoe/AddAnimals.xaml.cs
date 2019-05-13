@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfVidimoe.ServiceReference1;
 
 namespace WpfVidimoe
 {
@@ -24,6 +25,10 @@ namespace WpfVidimoe
 
         private void BTN_tv_add(object sender, RoutedEventArgs e)
         {
+            Service1Client service1Client = new Service1Client();
+            Tvar_ADD tvar_ADD = new Tvar_ADD();
+            SingInUser singInUser = new SingInUser();
+
             List<TextBox> TB_Tva = new List<TextBox>() { TB_Tv_type, TB_Tv_breed, TB_Tv_color, TB_Tv_nick, TB_Tv_age, TB_Tv_Kg };
 
             foreach (var item in TB_Tva)
@@ -55,6 +60,24 @@ namespace WpfVidimoe
                 TB_Tv_Kg.Focus();
                 return;
             }
+
+            tvar_ADD.Type = new ServiceReference1.Type();
+            tvar_ADD.Type.NameType = TB_Tv_type.Text;
+            tvar_ADD.Breed = new Breed();
+            tvar_ADD.Breed.NameBreed = TB_Tv_breed.Text;
+            tvar_ADD.Color = new ServiceReference1.Color();
+            tvar_ADD.Color.NameColor = TB_Tv_color.Text;
+            tvar_ADD.Nick = TB_Tv_nick.Text;
+            tvar_ADD.Age = double.Parse(TB_Tv_age.Text);
+            tvar_ADD.Kg = double.Parse(TB_Tv_Kg.Text);
+            tvar_ADD.Vaccination = VaccinationChoise.IsChecked ?? false;
+            tvar_ADD.Castration = CastrationChoise.IsChecked ?? false;
+            tvar_ADD.Information = TB_tv_addInf.Text;
+            tvar_ADD.DateTime = DateTime.Now;
+
+            service1Client.SetTvarina(tvar_ADD, singInUser);
+
+            Hide();
         }
     }
 }

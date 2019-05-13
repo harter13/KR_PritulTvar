@@ -12,11 +12,11 @@ namespace KR_PritulTvar
     public interface IService1
     {
         [OperationContract]
-        void SingIn(RegUser regUser);
+        bool SingIn(SingInUser User);
         [OperationContract]
         void SetUser(RegUser user);
         [OperationContract]
-        void SetTvarina(Tvar_ADD tvar);
+        void SetTvarina(Tvar_ADD tvar, SingInUser User);
 
     }
 
