@@ -31,7 +31,7 @@
             </Menu>
         </Grid>
         
-        <ListBox Grid.Row="1"/>
+        <ListBox Grid.Row="1" x:Name="LB_showMain"/>
         <Button Grid.Row="2" Width="200" Content="EXIT" FontSize="20" Click="BTN_exit"/>
     </Grid>
 </Window>

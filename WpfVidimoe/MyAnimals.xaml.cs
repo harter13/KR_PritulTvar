@@ -11,22 +11,51 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfVidimoe.ServiceReference1;
 
 namespace WpfVidimoe
 {
-    /// <summary>
-    /// Interaction logic for MyAnimals.xaml
-    /// </summary>
     public partial class MyAnimals : Window
     {
-        public MyAnimals()
+        Service1Client client = new Service1Client();
+        private ServiceReference1.SingInUser _user = null;
+        public MyAnimals( SingInUser user)
         {
+            _user = user;
             InitializeComponent();
+            ShowMyTvar();
         }
 
         private void BTN_close(object sender, RoutedEventArgs e)
         {
             Hide();
+        }
+
+        private void ShowMyTvar()
+        {
+
+            foreach (var item in client.GetUser())
+            {
+                if (_user.EmailSingIn == item.Email)
+                {
+                    foreach (var itemtv in client.GetTvar())
+                    {
+                        if (item.Id == itemtv.UserId)
+                        {
+                            LB_MyAnimals.Items.Add(itemtv.Type + " - " + itemtv.Nick);
+                            LB_MyAnimals.Items.Add("");
+                        }
+                    }
+                }
+            }
+        }
+
+        private void BTN_delete(object sender, RoutedEventArgs e)
+        {
+            DataGrid x = (DataGrid)this.FindName("myDataGrid");
+            var index = x.SelectedIndex;
+            //var indexTvar = LB_MyAnimals.item;
+            client.RemoveTvar(1);
         }
     }
 }

@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Web;
 
 namespace KR_PritulTvar
 {
     [DataContract]
-    public class Tvar_ADD
+    public class Tvar_ADD_DTO
     {
         [DataMember]
         public int Id { get; set; }
         [DataMember]
-        public virtual Type Type { get; set; }
+        public string Type { get; set; }
         [DataMember]
-        public virtual Breed Breed { get; set; }
+        public  string Breed { get; set; }
         [DataMember]
         public string Nick { get; set; }
         [DataMember]
@@ -22,9 +19,9 @@ namespace KR_PritulTvar
         [DataMember]
         public double Kg { get; set; }
         [DataMember]
-        public virtual Color Color { get; set; }
+        public string Color { get; set; }
         [DataMember]
-        public DateTime DateTime { get;set; }
+        public DateTime DateTime { get; set; }
         [DataMember]
         public bool Vaccination { get; set; }
         [DataMember]
@@ -32,7 +29,7 @@ namespace KR_PritulTvar
         [DataMember]
         public string Information { get; set; }
         [DataMember]
-        public virtual RegUser RegisterUser { get; set; }
+        public int UserId { get; set; }
 
     }
 

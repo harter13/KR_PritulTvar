@@ -47,17 +47,17 @@
             
             <Label Grid.Row="3" Grid.Column="0" Content="VACCINATION ANIMAL" HorizontalAlignment="Center"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="0" Margin="0,25,0,0">
-                <RadioButton Content="YES" Margin="0,10,60,0" GroupName="RB_vaccination"/>
-                <RadioButton Content="NO" Margin="0,10,0,0" GroupName="RB_vaccination"/>
+                <RadioButton x:Name="VaccinationChoise" Content="YES" Margin="0,10,60,0" GroupName="RB_vaccination" IsThreeState="False"/>
+                <RadioButton Content="NO" Margin="0,10,0,0" GroupName="RB_vaccination" IsThreeState="False" IsChecked="True"/>
             </StackPanel>
             
             <Label Grid.Row="3" Grid.Column="1" Content="CASTRATION ANIMAL" HorizontalAlignment="Center"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="1" Margin="0,25,0,0">
-                <RadioButton Content="YES" Margin="0,10,60,0" GroupName="RB_castration"/>
-                <RadioButton Content="NO" Margin="0,10,0,0" GroupName="RB_castration"/>
+                <RadioButton x:Name="CastrationChoise" Content="YES" Margin="0,10,60,0" GroupName="RB_castration" IsThreeState="False"/>
+                <RadioButton Content="NO" Margin="0,10,0,0" GroupName="RB_castration" IsThreeState="False" IsChecked="True"/>
             </StackPanel>
         </Grid>
 
-        <Button Grid.Row="4" Width="200" Height="50" Content="SEARCH" FontSize="20"/>
+        <Button Grid.Row="4" Width="200" Height="50" Content="SEARCH" FontSize="20" Click="BTN_search"/>
     </Grid>
 </Window>

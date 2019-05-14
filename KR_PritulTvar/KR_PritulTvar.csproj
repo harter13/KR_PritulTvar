@@ -76,6 +76,7 @@
     <Compile Include="Priut.cs" />
     <Compile Include="RegUser.cs" />
     <Compile Include="Breed.cs" />
+    <Compile Include="RegUser_DTO.cs" />
     <Compile Include="SingInUser.cs" />
     <Compile Include="Tvar_ADD.cs" />
     <Compile Include="Service1.svc.cs">
@@ -84,6 +85,7 @@
     <Compile Include="IService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Color.cs" />
+    <Compile Include="Tvar_ADD_DTO.cs" />
     <Compile Include="Type.cs" />
   </ItemGroup>
   <ItemGroup>

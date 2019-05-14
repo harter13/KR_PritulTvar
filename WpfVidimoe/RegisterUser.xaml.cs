@@ -90,10 +90,20 @@ namespace WpfVidimoe
                 return;
             }
 
-            client.SetUser(regUser);
-            Login login = new Login();
-            login.Show();
-            Hide();
+            bool email = client.SetUser(regUser);
+
+            if (email == true)
+            {
+                MessageBox.Show("Repeat Email");
+                TB_Us_Email.Focus();
+                return;
+            }
+            else
+            {
+                Login login = new Login();
+                login.Show();
+                Hide();
+            }
         }
     }
 }
