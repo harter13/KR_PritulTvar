@@ -12,13 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfVidimoe.ServiceReference1;
 
 namespace WpfVidimoe
 {
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private ServiceReference1.SingInUser _user = null;
+        public MainWindow(SingInUser user)
         {
+            _user = user;
             InitializeComponent();
         }
 
@@ -41,13 +44,13 @@ namespace WpfVidimoe
 
         private void Menu_addAnimal(object sender, RoutedEventArgs e)
         {
-            AddAnimals addAnimals = new AddAnimals();
+            AddAnimals addAnimals = new AddAnimals(_user);
             addAnimals.Show();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            MyAnimals myAnimals = new MyAnimals();
+            MyAnimals myAnimals = new MyAnimals(_user);
             myAnimals.Show();
         }
     }

@@ -54,7 +54,7 @@ namespace WpfVidimoe
 
             if(sing == true)
             {
-                MainWindow mainWindow = new MainWindow();
+                MainWindow mainWindow = new MainWindow(singInUser);
                 mainWindow.Show();
                 Hide();
             }

@@ -18,8 +18,10 @@ namespace WpfVidimoe
 {
     public partial class AddAnimals : Window
     {
-        public AddAnimals()
+        private ServiceReference1.SingInUser _user = null;
+        public AddAnimals(SingInUser user)
         {
+            _user = user;
             InitializeComponent();
         }
 
@@ -27,7 +29,6 @@ namespace WpfVidimoe
         {
             Service1Client service1Client = new Service1Client();
             Tvar_ADD tvar_ADD = new Tvar_ADD();
-            SingInUser singInUser = new SingInUser();
 
             List<TextBox> TB_Tva = new List<TextBox>() { TB_Tv_type, TB_Tv_breed, TB_Tv_color, TB_Tv_nick, TB_Tv_age, TB_Tv_Kg };
 
@@ -74,8 +75,8 @@ namespace WpfVidimoe
             tvar_ADD.Castration = CastrationChoise.IsChecked ?? false;
             tvar_ADD.Information = TB_tv_addInf.Text;
             tvar_ADD.DateTime = DateTime.Now;
-
-            service1Client.SetTvarina(tvar_ADD, singInUser);
+            
+            //service1Client.SetTvarina(tvar_ADD, _user);
 
             Hide();
         }

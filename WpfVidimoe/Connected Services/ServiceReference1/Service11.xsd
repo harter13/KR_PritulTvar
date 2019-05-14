@@ -66,4 +66,27 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Type" nillable="true" type="tns:Type" />
+  <xs:complexType name="Tvar_ADD_DTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Age" type="xs:double" />
+      <xs:element minOccurs="0" name="Breed" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Castration" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Color" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Information" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kg" type="xs:double" />
+      <xs:element minOccurs="0" name="Nick" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      <xs:element minOccurs="0" name="Vaccination" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tvar_ADD_DTO" nillable="true" type="tns:Tvar_ADD_DTO" />
+  <xs:complexType name="ArrayOfTvar_ADD_DTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tvar_ADD_DTO" nillable="true" type="tns:Tvar_ADD_DTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTvar_ADD_DTO" nillable="true" type="tns:ArrayOfTvar_ADD_DTO" />
 </xs:schema>

@@ -30,5 +30,10 @@ namespace WpfVidimoe
         {
             ((Slider)sender).SelectionEnd = e.NewValue;
         }
+
+        private void BTN_search(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
