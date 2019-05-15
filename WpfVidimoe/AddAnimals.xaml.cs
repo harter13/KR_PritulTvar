@@ -78,9 +78,7 @@ namespace WpfVidimoe
             
             service1Client.SetTvarina(tvar_ADD, _user);
 
-            //MainWindow mainWindow = new MainWindow(_user);
-            //mainWindow.ShowTvar();
-            Hide();
+            Close();
         }
     }
 }

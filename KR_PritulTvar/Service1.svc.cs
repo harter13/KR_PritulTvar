@@ -11,9 +11,6 @@ namespace KR_PritulTvar
 {
     public class Service1 : IService1
     {
-        //private readonly Priut Priut = new Priut();
-        //private bool disposed = false;
-
         public bool SingIn(SingInUser User)
         {
             using (Priut db = new Priut())
@@ -45,14 +42,6 @@ namespace KR_PritulTvar
         {
             using (Priut db = new Priut())
             {
-                //var tvType = db.Types.ToList().SingleOrDefault(c => c.NameType == tvarDTO.Type) ?? new Type { NameType = tvarDTO.Type };
-                //var tvBreed = db.Breeds.ToList().SingleOrDefault(c => c.NameBreed == tvarDTO.Breed) ?? new Breed { NameBreed = tvarDTO.Breed };
-                //var tvColor = db.Colors.ToList().SingleOrDefault(c => c.NameColor == tvarDTO.Color) ?? new Color { NameColor = tvarDTO.Color };
-                ////var userDb = db.RegUsers.ToList().Single(w => w.Email == User.EmailSingIn);
-                //tvarDTO.Type = tvType.NameType;
-                //tvarDTO.Breed = tvBreed.NameBreed;
-                //tvarDTO.Color = tvColor.NameColor;
-
                 var tvUsers = db.RegUsers.FirstOrDefault(w => w.Email == User.EmailSingIn);
                 var tvType = db.Types.FirstOrDefault(w => w.NameType == tvar.Type.NameType);
                 var tvBreed = db.Breeds.FirstOrDefault(w => w.NameBreed == tvar.Breed.NameBreed);
@@ -62,11 +51,11 @@ namespace KR_PritulTvar
                 {
                     tvar.Type = tvType;
                 }
-                else if (tvBreed != null)
+                if (tvBreed != null)
                 {
                     tvar.Breed = tvBreed;
                 }
-                else if (tvColor != null)
+                if (tvColor != null)
                 {
                     tvar.Color = tvColor;
                 }
@@ -139,29 +128,5 @@ namespace KR_PritulTvar
                 }
             }
         }
-
-
-        //public void Dispose()
-        //{
-        //    Dispose(true);
-        //    GC.SuppressFinalize(this);
-        //}
-        //protected virtual void Dispose(bool disposing)
-        //{
-        //    if (!disposed)
-        //    {
-        //        if (disposing)
-        //        {
-        //            Priut.Dispose();
-        //        }
-
-        //        disposed = true;
-        //    }
-        //}
-        //~Service1()
-        //{
-        //    Dispose(false);
-        //}
-
     }
 }

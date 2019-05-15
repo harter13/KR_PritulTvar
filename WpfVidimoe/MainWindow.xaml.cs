@@ -35,19 +35,19 @@ namespace WpfVidimoe
         {
             ContactInf contactInf = new ContactInf();
             contactInf.Show();
-            ShowTvar();
         }
 
         private void BTN_search(object sender, RoutedEventArgs e)
         {
             Search search = new Search();
-            search.Show();
+            search.ShowDialog();
         }
 
         private void Menu_addAnimal(object sender, RoutedEventArgs e)
         {
             AddAnimals addAnimals = new AddAnimals(_user);
-            addAnimals.Show();
+            addAnimals.ShowDialog();
+            ShowTvar();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)

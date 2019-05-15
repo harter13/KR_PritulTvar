@@ -56,7 +56,7 @@ namespace WpfVidimoe
             {
                 MainWindow mainWindow = new MainWindow(singInUser);
                 mainWindow.Show();
-                Hide();
+                Close();
             }
             else
             {

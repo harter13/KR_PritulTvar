@@ -28,7 +28,7 @@ namespace WpfVidimoe
 
         private void BTN_close(object sender, RoutedEventArgs e)
         {
-            Hide();
+            Close();
         }
 
         private void ShowMyTvar()
@@ -42,7 +42,7 @@ namespace WpfVidimoe
                     {
                         if (item.Id == itemtv.UserId)
                         {
-                            LB_MyAnimals.Items.Add(itemtv.Type + " - " + itemtv.Nick);
+                            LB_MyAnimals.Items.Add(itemtv.Id + " - " + itemtv.Type + " - " + itemtv.Nick);
                             LB_MyAnimals.Items.Add("");
                         }
                     }
@@ -52,10 +52,9 @@ namespace WpfVidimoe
 
         private void BTN_delete(object sender, RoutedEventArgs e)
         {
-            DataGrid x = (DataGrid)this.FindName("myDataGrid");
-            var index = x.SelectedIndex;
-            //var indexTvar = LB_MyAnimals.item;
-            client.RemoveTvar(1);
+            var item = Int32.Parse((LB_MyAnimals.SelectedItem as string).Split(' ')[0]);
+            client.RemoveTvar(item);
+            ShowMyTvar();
         }
     }
 }
