@@ -43,7 +43,6 @@ namespace WpfVidimoe
                         if (item.Id == itemtv.UserId)
                         {
                             LB_MyAnimals.Items.Add(itemtv.Id + " - " + itemtv.Type + " - " + itemtv.Nick);
-                            LB_MyAnimals.Items.Add("");
                         }
                     }
                 }
@@ -52,9 +51,13 @@ namespace WpfVidimoe
 
         private void BTN_delete(object sender, RoutedEventArgs e)
         {
-            var item = Int32.Parse((LB_MyAnimals.SelectedItem as string).Split(' ')[0]);
-            client.RemoveTvar(item);
-            ShowMyTvar();
+            if(LB_MyAnimals.Items.Count > 0)
+            {
+                var item = Int32.Parse((LB_MyAnimals.SelectedItem as string).Split(' ')[0]);
+                client.RemoveTvar(item);
+                LB_MyAnimals.Items.Clear();
+                ShowMyTvar();
+            }
         }
     }
 }

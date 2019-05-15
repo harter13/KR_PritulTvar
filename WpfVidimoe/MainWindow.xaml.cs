@@ -47,13 +47,16 @@ namespace WpfVidimoe
         {
             AddAnimals addAnimals = new AddAnimals(_user);
             addAnimals.ShowDialog();
+            LB_showMain.Items.Clear();
             ShowTvar();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             MyAnimals myAnimals = new MyAnimals(_user);
-            myAnimals.Show();
+            myAnimals.ShowDialog();
+            LB_showMain.Items.Clear();
+            ShowTvar();
         }
 
         public void ShowTvar()
