@@ -32,6 +32,16 @@
         </Grid>
         
         <ListBox Grid.Row="1" x:Name="LB_showMain"/>
-        <Button Grid.Row="2" Width="200" Content="EXIT" FontSize="20" Click="BTN_exit"/>
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Row="2" Grid.Column="0" Width="200" Content="EXIT" FontSize="20" Click="BTN_exit"/>
+            <Button Grid.Row="2" Grid.Column="1" Width="200" Content="SHOW ALL" FontSize="20" Click="BTN_showall"/>
+        </Grid>
+        
     </Grid>
 </Window>

@@ -19,12 +19,20 @@ namespace WpfVidimoe
     public partial class MainWindow : Window
     {
         private ServiceReference1.SingInUser _user = null;
+        Service1Client client = new Service1Client();
+        List<int> searcShow = new List<int>();
         public MainWindow(SingInUser user)
         {
-            _user = user;
             InitializeComponent();
+            _user = user;
             ShowTvar();
         }
+
+        //public MainWindow(List<int> list)
+        //{
+        //    InitializeComponent();
+        //    searc = list;
+        //}
 
         private void BTN_exit(object sender, RoutedEventArgs e)
         {
@@ -41,6 +49,29 @@ namespace WpfVidimoe
         {
             Search search = new Search();
             search.ShowDialog();
+            searcShow = search.GetListSearc();
+
+            LB_showMain.Items.Clear();
+            foreach (var items in searcShow)
+            {
+                foreach (var item in client.GetTvar())
+                {
+                    if (item.Id == items)
+                    {
+                        LB_showMain.Items.Add("Type : " + item.Type);
+                        LB_showMain.Items.Add("Breed : " + item.Breed);
+                        LB_showMain.Items.Add("Color : " + item.Color);
+                        LB_showMain.Items.Add("Nick : " + item.Nick);
+                        LB_showMain.Items.Add("Age : " + item.Age);
+                        LB_showMain.Items.Add("Width : " + item.Kg);
+                        LB_showMain.Items.Add("Vaccination : " + item.Vaccination);
+                        LB_showMain.Items.Add("Castration : " + item.Castration);
+                        LB_showMain.Items.Add("Information : " + item.Information);
+                        LB_showMain.Items.Add("Data of Publication: " + item.DateTime);
+                        LB_showMain.Items.Add("");
+                    }
+                }
+            }
         }
 
         private void Menu_addAnimal(object sender, RoutedEventArgs e)
@@ -62,9 +93,7 @@ namespace WpfVidimoe
         public void ShowTvar()
         {
             LB_showMain.Items.Clear();
-            Service1Client client = new Service1Client();
-            var tvar = client.GetTvar();
-            foreach (var item in tvar)
+            foreach (var item in client.GetTvar())
             {
                 LB_showMain.Items.Add("Type : " + item.Type);
                 LB_showMain.Items.Add("Breed : " + item.Breed);
@@ -78,6 +107,11 @@ namespace WpfVidimoe
                 LB_showMain.Items.Add("Data of Publication: " + item.DateTime);
                 LB_showMain.Items.Add("");
             }
+        }
+
+        private void BTN_showall(object sender, RoutedEventArgs e)
+        {
+            ShowTvar();
         }
     }
 }

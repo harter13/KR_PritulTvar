@@ -33,7 +33,6 @@ namespace WpfVidimoe
 
         private void ShowMyTvar()
         {
-
             foreach (var item in client.GetUser())
             {
                 if (_user.EmailSingIn == item.Email)
@@ -42,7 +41,7 @@ namespace WpfVidimoe
                     {
                         if (item.Id == itemtv.UserId)
                         {
-                            LB_MyAnimals.Items.Add(itemtv.Id + " - " + itemtv.Type + " - " + itemtv.Nick);
+                            LB_MyAnimals.Items.Add(itemtv.Id + " - id| " + itemtv.Type + " | " + itemtv.Nick);
                         }
                     }
                 }

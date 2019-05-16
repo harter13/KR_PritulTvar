@@ -29,12 +29,12 @@
             <TextBox Grid.Row="0" Grid.Column="2" Width="200" Height="30" x:Name="TB_Searc_color"/>
         </Grid>
         
-        <Label Grid.Row="1" Content="AGE ANIMAL" HorizontalAlignment="Center" FontSize="15"/>
+        <Label Grid.Row="1" Content="TO AGE ANIMAL" HorizontalAlignment="Center" FontSize="15"/>
         <Slider x:Name="SliderAge" Grid.Row="1" Maximum="25" Minimum="0" TickPlacement="BottomRight"
                 VerticalAlignment="Center" IsSelectionRangeEnabled="True" SelectionStart="0"
                 ValueChanged="Slider_chngedAge" Margin="25,30,25,30"/>
 
-        <Label Grid.Row="2" Content="WEIGHT ANIMAL" HorizontalAlignment="Center" FontSize="15"/>
+        <Label Grid.Row="2" Content="TO WEIGHT ANIMAL" HorizontalAlignment="Center" FontSize="15"/>
         <Slider x:Name="SliderKg" Grid.Row="2" Maximum="100" Minimum="0" TickPlacement="BottomRight"
                 VerticalAlignment="Center" IsSelectionRangeEnabled="True" SelectionStart="0"
                 ValueChanged="Slider_chngedKg" Margin="25,30,25,30"/>
