@@ -66,6 +66,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Type" nillable="true" type="tns:Type" />
+  <xs:complexType name="ArrayOfTvar_ADD_DTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tvar_ADD_DTO" nillable="true" type="tns:Tvar_ADD_DTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTvar_ADD_DTO" nillable="true" type="tns:ArrayOfTvar_ADD_DTO" />
   <xs:complexType name="Tvar_ADD_DTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="Age" type="xs:double" />
@@ -83,10 +89,22 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Tvar_ADD_DTO" nillable="true" type="tns:Tvar_ADD_DTO" />
-  <xs:complexType name="ArrayOfTvar_ADD_DTO">
+  <xs:complexType name="ArrayOfRegUser_DTO">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tvar_ADD_DTO" nillable="true" type="tns:Tvar_ADD_DTO" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RegUser_DTO" nillable="true" type="tns:RegUser_DTO" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfTvar_ADD_DTO" nillable="true" type="tns:ArrayOfTvar_ADD_DTO" />
+  <xs:element name="ArrayOfRegUser_DTO" nillable="true" type="tns:ArrayOfRegUser_DTO" />
+  <xs:complexType name="RegUser_DTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SurName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TvarID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RegUser_DTO" nillable="true" type="tns:RegUser_DTO" />
 </xs:schema>

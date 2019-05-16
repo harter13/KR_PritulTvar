@@ -17,45 +17,46 @@ namespace WpfVidimoe
 {
     public partial class MyAnimals : Window
     {
+        Service1Client client = new Service1Client();
         private ServiceReference1.SingInUser _user = null;
         public MyAnimals( SingInUser user)
         {
             _user = user;
             InitializeComponent();
-            Start();
+            ShowMyTvar();
         }
 
         private void BTN_close(object sender, RoutedEventArgs e)
         {
-            Hide();
+            Close();
         }
 
-        private void Start()
+        private void ShowMyTvar()
         {
-            Service1Client client = new Service1Client();
-            var tvar = client.GetTvar();
-            //var users = GetUserById(tvar)
-            int IDuser;
-            foreach (var item in users)
+            foreach (var item in client.GetUser())
             {
-                if(_user.EmailSingIn == item.Email)
+                if (_user.EmailSingIn == item.Email)
                 {
-                    IDuser = item.Id;
-                }
-            }
-
-            foreach (var item in tvar)
-            {
-                if (IDuser == item.UserId)
-                {
-                    LB_MyAnimals.Items.Add(item.Type + " - " + item.Nick);
+                    foreach (var itemtv in client.GetTvar())
+                    {
+                        if (item.Id == itemtv.UserId)
+                        {
+                            LB_MyAnimals.Items.Add(itemtv.Id + " - id| " + itemtv.Type + " | " + itemtv.Nick);
+                        }
+                    }
                 }
             }
         }
 
         private void BTN_delete(object sender, RoutedEventArgs e)
         {
-
+            if(LB_MyAnimals.Items.Count > 0)
+            {
+                var item = Int32.Parse((LB_MyAnimals.SelectedItem as string).Split(' ')[0]);
+                client.RemoveTvar(item);
+                LB_MyAnimals.Items.Clear();
+                ShowMyTvar();
+            }
         }
     }
 }

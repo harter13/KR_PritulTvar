@@ -11,9 +11,6 @@ namespace KR_PritulTvar
 {
     public class Service1 : IService1
     {
-        //private readonly Priut Priut = new Priut();
-        //private bool disposed = false;
-
         public bool SingIn(SingInUser User)
         {
             using (Priut db = new Priut())
@@ -41,18 +38,29 @@ namespace KR_PritulTvar
             }
         }
 
-        public void SetTvarina(Tvar_ADD_DTO tvarDTO, SingInUser User)
+        public void SetTvarina(Tvar_ADD tvar, SingInUser User)
         {
-
-            
-
-            
             using (Priut db = new Priut())
             {
-                var tvColor = db.Colors.ToList().SingleOrDefault(c => c.NameColor == tvarDTO.Color) ?? new Color { NameColor = tvarDTO.Color }; 
-                var userDb = db.RegUsers.ToList().Single(w => w.Email == User.EmailSingIn);
-                //tvarDTO.RegisterUser = userDb;
-                //db.Tvar_Add.Add(tvar);
+                var tvUsers = db.RegUsers.FirstOrDefault(w => w.Email == User.EmailSingIn);
+                var tvType = db.Types.FirstOrDefault(w => w.NameType == tvar.Type.NameType);
+                var tvBreed = db.Breeds.FirstOrDefault(w => w.NameBreed == tvar.Breed.NameBreed);
+                var tvColor = db.Colors.FirstOrDefault(w => w.NameColor == tvar.Color.NameColor);
+
+                if (tvType != null)
+                {
+                    tvar.Type = tvType;
+                }
+                if (tvBreed != null)
+                {
+                    tvar.Breed = tvBreed;
+                }
+                if (tvColor != null)
+                {
+                    tvar.Color = tvColor;
+                }
+                tvar.RegisterUser = tvUsers;
+                db.Tvar_Add.Add(tvar);
                 db.SaveChanges();
             }
         }
@@ -64,62 +72,61 @@ namespace KR_PritulTvar
                 db.Configuration.ProxyCreationEnabled = false;
 
                 var result = db.Tvar_Add
-                    .Include(t => t.Type)
-                    .Include( c => c.Color)
-                    .Include( b => b.Breed)
-                    .Select( tv => new Tvar_ADD_DTO
-                    {
-                         Id = tv.Id,
-                         Type = tv.Type.NameType,
-                         Breed = tv.Breed.NameBreed,
-                         Nick = tv.Nick,
-                         Age = tv.Age,
-                         Kg = tv.Kg,
-                         Color = tv.Color.NameColor,
-                         DateTime = tv.DateTime,
-                         Vaccination = tv.Vaccination,
-                         Castration = tv.Castration,
-                         Information=tv.Information,
-                         UserId = tv.RegisterUser.Id
+                .Include(t => t.Type)
+                .Include( c => c.Color)
+                .Include( b => b.Breed)
+                .Select( tv => new Tvar_ADD_DTO
+                {
+                     Id = tv.Id,
+                     Type = tv.Type.NameType,
+                     Breed = tv.Breed.NameBreed,
+                     Nick = tv.Nick,
+                     Age = tv.Age,
+                     Kg = tv.Kg,
+                     Color = tv.Color.NameColor,
+                     DateTime = tv.DateTime,
+                     Vaccination = tv.Vaccination,
+                     Castration = tv.Castration,
+                     Information=tv.Information,
+                     UserId = tv.RegisterUser.Id 
+                }).ToList();
 
-                    })
-                    .ToList();
                 return result;
             }
-
         }
 
-        public RegUser[] GetUserById(int id)
+        public IEnumerable<RegUser_DTO> GetUser()
         {
             using (Priut db = new Priut())
             {
-                var user = db.RegUsers.SingleOrDefault(u => u.Id == id);
-                return user;
+                var getUser = db.RegUsers.Select(w => new RegUser_DTO
+                {
+                    Id = w.Id,
+                    Name = w.Name,
+                    SurName = w.SurName,
+                    Email = w.Email,
+                    Tel = w.Tel,
+                    Password = w.Password
+                }).ToList();
+
+                return getUser;
             }
         }
 
+        public void RemoveTvar(int Id)
+        {
+            int idDel = Id;
+            using (Priut db = new Priut())
+            {
+                bool auditID = db.Tvar_Add.ToList().Any(w => w.Id == idDel);
 
-        //public void Dispose()
-        //{
-        //    Dispose(true);
-        //    GC.SuppressFinalize(this);
-        //}
-        //protected virtual void Dispose(bool disposing)
-        //{
-        //    if (!disposed)
-        //    {
-        //        if (disposing)
-        //        {
-        //            Priut.Dispose();
-        //        }
-
-        //        disposed = true;
-        //    }
-        //}
-        //~Service1()
-        //{
-        //    Dispose(false);
-        //}
-
+                if (auditID == true)
+                {
+                    var del = db.Tvar_Add.Find(idDel);
+                    db.Tvar_Add.Remove(del);
+                    db.SaveChanges();
+                }
+            }
+        }
     }
 }

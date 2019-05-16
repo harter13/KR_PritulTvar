@@ -32,7 +32,7 @@
   <xs:element name="SetTvarina">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/KR_PritulTvar" minOccurs="0" name="tvar" nillable="true" type="q3:Tvar_ADD_DTO" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/KR_PritulTvar" minOccurs="0" name="tvar" nillable="true" type="q3:Tvar_ADD" />
         <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/KR_PritulTvar" minOccurs="0" name="User" nillable="true" type="q4:SingInUser" />
       </xs:sequence>
     </xs:complexType>
@@ -52,6 +52,30 @@
       <xs:sequence>
         <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/KR_PritulTvar" minOccurs="0" name="GetTvarResult" nillable="true" type="q5:ArrayOfTvar_ADD_DTO" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUser">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/KR_PritulTvar" minOccurs="0" name="GetUserResult" nillable="true" type="q6:ArrayOfRegUser_DTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveTvar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveTvarResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

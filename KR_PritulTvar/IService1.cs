@@ -16,11 +16,13 @@ namespace KR_PritulTvar
         [OperationContract]
         bool SetUser(RegUser user);
         [OperationContract]
-        void SetTvarina(Tvar_ADD_DTO tvar, SingInUser User);
+        void SetTvarina(Tvar_ADD tvar, SingInUser User);
         [OperationContract]
         IEnumerable<Tvar_ADD_DTO> GetTvar();
         [OperationContract]
-        RegUser[] GetUserById(int id);
+        IEnumerable<RegUser_DTO> GetUser();
+        [OperationContract]
+        void RemoveTvar(int Id);
     }
 
 }

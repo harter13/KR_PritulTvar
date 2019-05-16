@@ -31,6 +31,18 @@
   <wsdl:message name="IService1_GetTvar_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetTvarResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RemoveTvar_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveTvar" />
+  </wsdl:message>
+  <wsdl:message name="IService1_RemoveTvar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveTvarResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="SingIn">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SingIn" message="tns:IService1_SingIn_InputMessage" />
@@ -47,6 +59,14 @@
     <wsdl:operation name="GetTvar">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTvar" message="tns:IService1_GetTvar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTvarResponse" message="tns:IService1_GetTvar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUser" message="tns:IService1_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUserResponse" message="tns:IService1_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTvar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/RemoveTvar" message="tns:IService1_RemoveTvar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/RemoveTvarResponse" message="tns:IService1_RemoveTvar_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -80,6 +100,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetTvar">
       <soap:operation soapAction="http://tempuri.org/IService1/GetTvar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTvar">
+      <soap:operation soapAction="http://tempuri.org/IService1/RemoveTvar" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

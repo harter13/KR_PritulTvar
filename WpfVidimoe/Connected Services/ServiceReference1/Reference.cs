@@ -888,6 +888,147 @@ namespace WpfVidimoe.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RegUser_DTO", Namespace="http://schemas.datacontract.org/2004/07/KR_PritulTvar")]
+    [System.SerializableAttribute()]
+    public partial class RegUser_DTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SurNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TvarIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SurName {
+            get {
+                return this.SurNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SurNameField, value) != true)) {
+                    this.SurNameField = value;
+                    this.RaisePropertyChanged("SurName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Tel {
+            get {
+                return this.TelField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TelField, value) != true)) {
+                    this.TelField = value;
+                    this.RaisePropertyChanged("Tel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TvarID {
+            get {
+                return this.TvarIDField;
+            }
+            set {
+                if ((this.TvarIDField.Equals(value) != true)) {
+                    this.TvarIDField = value;
+                    this.RaisePropertyChanged("TvarID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -905,16 +1046,28 @@ namespace WpfVidimoe.ServiceReference1 {
         System.Threading.Tasks.Task<bool> SetUserAsync(WpfVidimoe.ServiceReference1.RegUser user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SetTvarina", ReplyAction="http://tempuri.org/IService1/SetTvarinaResponse")]
-        void SetTvarina(WpfVidimoe.ServiceReference1.Tvar_ADD_DTO tvar, WpfVidimoe.ServiceReference1.SingInUser User);
+        void SetTvarina(WpfVidimoe.ServiceReference1.Tvar_ADD tvar, WpfVidimoe.ServiceReference1.SingInUser User);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SetTvarina", ReplyAction="http://tempuri.org/IService1/SetTvarinaResponse")]
-        System.Threading.Tasks.Task SetTvarinaAsync(WpfVidimoe.ServiceReference1.Tvar_ADD_DTO tvar, WpfVidimoe.ServiceReference1.SingInUser User);
+        System.Threading.Tasks.Task SetTvarinaAsync(WpfVidimoe.ServiceReference1.Tvar_ADD tvar, WpfVidimoe.ServiceReference1.SingInUser User);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTvar", ReplyAction="http://tempuri.org/IService1/GetTvarResponse")]
         WpfVidimoe.ServiceReference1.Tvar_ADD_DTO[] GetTvar();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTvar", ReplyAction="http://tempuri.org/IService1/GetTvarResponse")]
         System.Threading.Tasks.Task<WpfVidimoe.ServiceReference1.Tvar_ADD_DTO[]> GetTvarAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUser", ReplyAction="http://tempuri.org/IService1/GetUserResponse")]
+        WpfVidimoe.ServiceReference1.RegUser_DTO[] GetUser();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUser", ReplyAction="http://tempuri.org/IService1/GetUserResponse")]
+        System.Threading.Tasks.Task<WpfVidimoe.ServiceReference1.RegUser_DTO[]> GetUserAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemoveTvar", ReplyAction="http://tempuri.org/IService1/RemoveTvarResponse")]
+        void RemoveTvar(int Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RemoveTvar", ReplyAction="http://tempuri.org/IService1/RemoveTvarResponse")]
+        System.Threading.Tasks.Task RemoveTvarAsync(int Id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -960,11 +1113,11 @@ namespace WpfVidimoe.ServiceReference1 {
             return base.Channel.SetUserAsync(user);
         }
         
-        public void SetTvarina(WpfVidimoe.ServiceReference1.Tvar_ADD_DTO tvar, WpfVidimoe.ServiceReference1.SingInUser User) {
+        public void SetTvarina(WpfVidimoe.ServiceReference1.Tvar_ADD tvar, WpfVidimoe.ServiceReference1.SingInUser User) {
             base.Channel.SetTvarina(tvar, User);
         }
         
-        public System.Threading.Tasks.Task SetTvarinaAsync(WpfVidimoe.ServiceReference1.Tvar_ADD_DTO tvar, WpfVidimoe.ServiceReference1.SingInUser User) {
+        public System.Threading.Tasks.Task SetTvarinaAsync(WpfVidimoe.ServiceReference1.Tvar_ADD tvar, WpfVidimoe.ServiceReference1.SingInUser User) {
             return base.Channel.SetTvarinaAsync(tvar, User);
         }
         
@@ -974,6 +1127,22 @@ namespace WpfVidimoe.ServiceReference1 {
         
         public System.Threading.Tasks.Task<WpfVidimoe.ServiceReference1.Tvar_ADD_DTO[]> GetTvarAsync() {
             return base.Channel.GetTvarAsync();
+        }
+        
+        public WpfVidimoe.ServiceReference1.RegUser_DTO[] GetUser() {
+            return base.Channel.GetUser();
+        }
+        
+        public System.Threading.Tasks.Task<WpfVidimoe.ServiceReference1.RegUser_DTO[]> GetUserAsync() {
+            return base.Channel.GetUserAsync();
+        }
+        
+        public void RemoveTvar(int Id) {
+            base.Channel.RemoveTvar(Id);
+        }
+        
+        public System.Threading.Tasks.Task RemoveTvarAsync(int Id) {
+            return base.Channel.RemoveTvarAsync(Id);
         }
     }
 }

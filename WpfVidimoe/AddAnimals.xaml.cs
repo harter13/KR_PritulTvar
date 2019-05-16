@@ -76,9 +76,9 @@ namespace WpfVidimoe
             tvar_ADD.Information = TB_tv_addInf.Text;
             tvar_ADD.DateTime = DateTime.Now;
             
-            //service1Client.SetTvarina(tvar_ADD, _user);
+            service1Client.SetTvarina(tvar_ADD, _user);
 
-            Hide();
+            Close();
         }
     }
 }
