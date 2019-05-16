@@ -21,8 +21,14 @@ namespace WpfVidimoe
         private ServiceReference1.SingInUser _user = null;
         public AddAnimals(SingInUser user)
         {
-            _user = user;
             InitializeComponent();
+            _user = user;
+        }
+
+        public AddAnimals(int Idtv)
+        {
+            InitializeComponent();
+            EditTvar();
         }
 
         private void BTN_tv_add(object sender, RoutedEventArgs e)
@@ -79,6 +85,11 @@ namespace WpfVidimoe
             service1Client.SetTvarina(tvar_ADD, _user);
 
             Close();
+        }
+
+        void EditTvar()
+        {
+            
         }
     }
 }

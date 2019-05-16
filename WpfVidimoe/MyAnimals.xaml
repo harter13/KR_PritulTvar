@@ -22,7 +22,7 @@
             </Grid.ColumnDefinitions>
             
             <Button Grid.Row="1" Grid.Column="0" Height="50" Width="200" Content="DELETE" FontSize="20" Click="BTN_delete"/>
-            <Button Grid.Row="1" Grid.Column="1" Height="50" Width="200" Content="EDIT" FontSize="20"/>
+            <Button Grid.Row="1" Grid.Column="1" Height="50" Width="200" Content="EDIT" FontSize="20" Click="BTN_edit"/>
         </Grid>
         
         <Button Grid.Row="2" Width="200" Height="50" Content="CLOSE" FontSize="20" Click="BTN_close"/>

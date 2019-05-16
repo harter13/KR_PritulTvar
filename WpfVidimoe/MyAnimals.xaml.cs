@@ -58,5 +58,24 @@ namespace WpfVidimoe
                 ShowMyTvar();
             }
         }
+
+        private void BTN_edit(object sender, RoutedEventArgs e)
+        {
+            int IdTv;
+
+            var item = Int32.Parse((LB_MyAnimals.SelectedItem as string).Split(' ')[0]);
+            foreach (var itemtv in client.GetTvar())
+            {
+                if (itemtv.Id == item)
+                {
+                    IdTv = itemtv.Id;
+                    return;
+                }
+            }
+
+            //AddAnimals animals = new AddAnimals(IdTv);
+            //animals.ShowDialog();
+            Close();
+        }
     }
 }

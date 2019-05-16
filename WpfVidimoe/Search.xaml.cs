@@ -68,7 +68,6 @@ namespace WpfVidimoe
                         }
                     }
                 }
-
             }
 
             Close();

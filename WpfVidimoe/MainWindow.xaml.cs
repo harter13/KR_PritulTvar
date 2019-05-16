@@ -28,12 +28,6 @@ namespace WpfVidimoe
             ShowTvar();
         }
 
-        //public MainWindow(List<int> list)
-        //{
-        //    InitializeComponent();
-        //    searc = list;
-        //}
-
         private void BTN_exit(object sender, RoutedEventArgs e)
         {
             Close();
